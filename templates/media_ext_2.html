@@ -1,0 +1,776 @@
+{% extends 'userheader.html' %}
+<html lang="en">
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOUROWN</title>
+
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" >
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+      *{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color-light: white;
+    --secondary-color-light: black;
+    --primary-color-dark: black;
+    --secondary-color-dark: white;
+    --third-color-light:  rgb(214, 211, 211);
+    --third-color-dark:  rgb(37, 37, 37);
+    --fourth-color-light:  rgb(90, 89, 89);
+    --fourth-color-dark:  rgb(245, 243, 243);
+
+}
+
+[data-theme='dark'] {
+    --primary-color: var(--primary-color-dark);
+    --secondary-color: var(--secondary-color-dark);
+    --third-color:var(--third-color-dark);
+    --fourth-color:var(--fourth-color-dark);
+}
+
+[data-theme='light'] {
+    --primary-color: var(--primary-color-light);
+    --secondary-color: var(--secondary-color-light);
+    --third-color:var(--third-color-light);
+    --fourth-color:var(--fourth-color-light);
+
+}
+
+/* Update your existing styles to use var(--primary-color) and var(--secondary-color) */
+
+#main-body{
+    background-color: var(--primary-color);
+}
+#moon-icon{
+    width: 30px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+/* navbar1 */
+
+.nav-main{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+}
+.nav-main>.nav1{
+    height: 90px;
+    color:var(--secondary-color);
+    background-color: var(--primary-color);
+}
+.nav1>.inside>.inside-inside>.navbar-nav>.nav-item>.nav-link{
+    background: var(--primary-color);
+    color: var(--secondary-color);
+}
+.nav1>.inside>.inside-inside>.navbar-nav>.nav-item>.nav-link:hover,.nav1>.inside>.cartlogo:hover{
+    color: var(--secondary-color);
+    font-weight: bold;
+    border-bottom:3px solid var(--secondary-color);
+}
+
+#user-icon i{
+    color: var(--secondary-color);
+    text-align: center;
+    padding: 15px;
+    font-size: 30px;
+}
+/* navbar2 */
+
+
+.nav-main>.nav2{
+    height: 30px;
+
+    background-color: var(--third-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    justify-content: space-around;
+    font-size: 15px;
+}
+.nav2>.nav-link,.register>.sin{
+    color: var(--secondary-color);
+}
+.nav2>.nav-link:hover,.register>.sin:hover{
+    color: var(--secondary-color);
+    font-weight: bold;
+    border-bottom:3px solid var(--secondary-color);
+}
+.register>.sin{
+    text-decoration: none;
+    color: var(--secondary-color);
+   }
+   .input1{
+       width: 100%;
+       height: 50px;
+       border-radius: none;
+       padding-left: 5%;
+   }
+   .inpubtn{
+       width: 100%;
+       height: 50px;
+       background-color: var(--secondary-color);
+       border:none;
+       color: var(--primary-color);
+   }
+   .inpubtn:hover{
+       background-color: var(--primary-color);
+       border:none;
+       color: var(--secondary-color);
+       border: 1px solid var(--secondary-color);
+   }
+
+   .inbn1{
+       width: 100%;
+       height: 50px;
+       background-color: var(--primary-color);
+       border:none;
+       color: var(--secondary-color);
+       border: 1px solid var(--secondary-color);
+   }
+   .inbn1:hover{
+       background-color: var(--secondary-color);
+       border:none;
+       color: var(--secondary-color);
+   }
+
+
+
+
+   /* footer */
+footer{
+    width: 100%;
+    height: auto;
+}
+footer .s1{
+    background-color: var(--third-color);
+    padding: 40px 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.personal{
+    color: var(--secondary-color);
+}
+.location a{
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+.s1 .social{
+    display: flex;
+    flex-direction: column;
+}
+.social a{
+    padding-bottom: 8px;
+    text-decoration: none;
+    color: var(--secondary-color);
+}
+
+footer .s2{
+    background: var(--third-color);
+    padding: 5px;
+    text-align: center;
+    padding-top: 6px;
+}
+@media (max-width:700px) {
+    footer .s1{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-content: flex-start;
+    }
+    .personal{
+        padding-bottom: 20px;
+    }
+    .location{
+        padding-bottom: 40px;
+    }
+}
+#copy-right{
+    font-weight:lighter ;
+    color: var(--secondary-color);
+}
+ /* footer */
+
+
+
+ /*  main page of media*/
+.hero{
+    display:flex;
+    position: relative;
+}
+.hero>img{
+    width:25%;
+    height:100%;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+.hero-txt{
+
+    position: absolute;
+    color:var(--primary-color);
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+.hero-txt>h2{
+    font-weight:lighter;
+    font-size: 4vw;
+    color: var(--secondary-color);
+}
+.hero-txt>h1{
+    font-weight:bolder;
+    font-size: 4vw;
+    font-family:italic;
+    color: var(--secondary-color);
+}
+
+
+@media (min-width: 1200px) {
+    .responsive-font-example {
+      font-size: 25px;
+    }
+
+  }
+  /* If the screen size is smaller than 1200px, set the font-size to 80px */
+  @media (max-width: 1199.98px) {
+    .responsive-font-example {
+      font-size: 15px;
+    }
+    .hero-txt{
+
+        top: 30%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+  }
+  @media (max-width: 400px) {
+    .responsive-font-example {
+      font-size: 15px;
+    }
+
+  }
+
+
+
+
+
+  .hero-2{
+    box-sizing: border-box;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+  }
+  .hero-2 h1{
+    text-align: center;
+    padding-top: 80px;
+    font-size: 40px;
+    color: var(--secondary-color);
+  }
+  .slide-row{
+    display: flex;
+    width: 3200px;
+  }
+.slide-row{
+    width: 800px;
+    height: 400px;
+    position: relative;
+
+}
+.user-img{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+}
+.user-img img{
+    height: 100%;
+    border-radius: 10px;
+}
+.user-text{
+    background: #2d3a59;
+    width: 520px;
+    height: 270px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 10px;
+    color: var(--third-color);
+    padding: 45px;
+    box-sizing: border-box;
+    z-index: 1;
+
+}
+.user-text p{
+    font-size: 18px;
+    line-height: 24px;
+}
+.user-text h3{
+    margin: 35px 0 5px;
+    color: var(--third-color);
+
+}
+.container{
+    width: 800px;
+    height: 400px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+
+}
+.indicator{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -50px;
+
+}
+.btn{
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+    margin: 4px;
+    border-radius: 15px;
+    background: var(--secondary-color);
+    cursor: pointer;
+}
+
+
+
+
+
+#hrl{
+    color: var(--secondary-color);
+    text-shadow: 2px 2px 8px var(--secondary-color);
+}
+.blog{
+    display: flex;
+    padding: 0 80px;
+    flex-direction: column;
+    width: 100%;
+}
+.blog h1{
+    margin: 40px 0;
+    text-align: center;
+    font-size:50px;
+    font-family: italic;
+    color: var(--secondary-color);
+}
+.blog .part{
+    display: flex;
+}
+.blog .part .part1{
+    flex: 70%;
+    padding-right: 10px;
+}
+
+.blog .part .part1 .part1-img img{
+    width: 100%;
+    height: auto;
+}
+.blog .part .part1 .part1-img p{
+
+    color: var(--fourth-color);
+    margin-top: 20px;
+    font-size: smaller;
+}
+.blog .part .part1 .part1-img h4{
+    margin: 20px 0;
+    font-size: 40px;
+    color: var(--fourth-color);
+}
+.blog .part .part1 .part1-img h4:hover{
+   color: var(--fourth-color);
+}
+.blog .part .part1 .part1-img button{
+    border: 1px solid var(--secondary-color);
+    color: var(--secondary-color);
+    background-color: var(--primary-color);
+    height: 50px;
+    width: 120px;
+    margin: 20px 0;
+    font-size: smaller;
+}
+.blog .part .part1 .part1-img button:hover{
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+}
+
+.blog .part .part2 h2{
+    color: var(--secondary-color);
+}
+.blog .part .part2{
+    flex: 30%;
+    padding: 0px 10px;
+}
+
+.blog .part .part2 img{
+    width: 100%;
+    height: auto;
+    margin: 20px 0;
+}
+.blog .part .part2 .part2-img p{
+    font-size: smaller;
+    margin: 20px 0;
+    color: grey;
+}
+
+
+ /* main end  */
+
+
+    </style>
+</head>
+<body id="main-body">
+<div id="media">
+<!--Navbar start-->
+
+<div class="blog">
+  <h1 >One Of The Post</h1>
+  <div class="part">
+    <div class="part1">
+      <div class="part1-img">
+        <h4>The most common mistakes when managing personal finances</h4>
+        <p><i class="fa-regular fa-calendar" style="margin-right: 10px;"></i>05.04.2023</p>
+        <img src="static/upload/part1-1.jpg" alt="">
+        <p>The ability to manage money competently is especially valuable quality in the conditions of financial crisis, when the purchasing power of the population is shrinking, inflation is rising, and currency exchange rates are completely unpredictable. Below are the common mistakes related to money affairs along with financial planning advice to help manage your own finances properly.</p>
+
+
+
+           <p> The budget is the most basic thing in financial planning. It is therefore especially important to be careful when compiling the budget. To start you have to draw up your own budget for the next month and only after it you may make a yearly budget.</p>
+
+
+
+           <p> As the basis takes your monthly income, subtract from it such regular expenses as the cost of housing, transportation, and then select 20-30% on savings or mortgage loan payment.</p>
+
+            <p>The rest can be spent on living: restaurants, entertainment, etc. If you are afraid of spending too much, limit yourself in weekly expenses by having a certain amount of ready cash.</p>
+
+
+
+           <p> "When people borrow, they think that they should return it as soon as possible," said Sofia Bera, a certified financial planner and founder of Gen Y Planning company. And at its repayment spend all that earn. But it's not quite rationally ".</p>
+
+
+
+           <p> If you don't have money on a rainy day, in case of an emergency (e.g. emergency of car repairs) you have to pay by credit card or get into new debts. Keep on account of at least $1000 in case of unexpected expenses. And gradually increase the "airbag" to an amount equal to your income for up to three-six months.</p>
+
+
+
+           <p> "Usually when people plan to invest, they only think about profit and they don't think that loss's possible", says Harold Evensky, the President of the financial management company Evensky & Katz. He said that sometimes people do not do basic mathematical calculations.</p>
+            <img src="static/upload/part1-7.jpg" alt="">
+            <p>For example, forgetting that if in one year they lost 50%, and the following year they received 50% of the profits, they did not return to the starting point, and lost 25% savings. Therefore, think about the consequences. Get ready to any options. And of course, it would be wiser to invest in several different investment objects.</p>
+
+        <hr>
+    </div>
+
+
+  </div>
+
+
+
+
+    <div class="part2">
+      <h2>Recent Posts</h2>
+      <div class="part2-img">
+        <img src="static/upload/part1-1.jpg" alt="">
+        <p>The most common mistakes when managing personal finances</p>
+      </div>
+      <div class="part2-img">
+        <img src="static/upload/part1-6.jpg" alt="">
+        <p>Methods of the recruitment</p>
+      </div>
+      <div class="part2-img">
+        <img src="static/upload/part1-3.jpg" alt="">
+        <p>Overalls with logo as a method of advertising</p>
+      </div>
+      <div class="part2-img">
+        <img src="static/upload/part1-2.jpg" alt="">
+        <p>Selection process remains the perfect</p>
+      </div>
+      <div class="part2-img">
+        <img src="static/upload/part1-4.jpg" alt="">
+        <p>Selection process remains the perfect</p>
+      </div>
+      <div class="part2-img">
+        <img src="static/upload/part1-5.jpg" alt="">
+        <p>Selection process remains the perfect</p>
+      </div>
+      <div class="part2-img">
+        <img src="static/upload/part1-7.jpg" alt="">
+        <p>Selection process remains the perfect</p>
+      </div>
+
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+<!--shopping end-->
+</div>
+<script>
+
+// Function to toggle between dark and light mode
+function toggleDarkLightMode() {
+  const currentTheme = localStorage.getItem('theme') || 'light';
+  const moonIcon = document.getElementById('moon-icon');
+  const logoIcon = document.getElementById('navbar-logo');
+
+  if (currentTheme === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'light');
+      moonIcon.src = 'static/upload/moon.png';
+      logoIcon.src = 'static/upload/logofinal-01.png'
+      localStorage.setItem('theme', 'light');
+  } else {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      moonIcon.src = 'static/upload/sun.png';
+      logoIcon.src = 'static/upload/logof-darkmode.png'
+      localStorage.setItem('theme', 'dark');
+  }
+}
+
+// Check for the theme in local storage and set it
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme) {
+  document.documentElement.setAttribute('data-theme', savedTheme);
+  if (savedTheme === 'dark') {
+      document.getElementById('moon-icon').src = 'static/upload/sun.png';
+  }
+}
+
+// Add a click event listener to the moon icon
+document.getElementById('moon-icon').addEventListener('click', toggleDarkLightMode);
+
+
+
+
+
+
+// register form validation
+const usernameEl = document.querySelector('#username');
+const emailEl = document.querySelector('#email');
+const passwordEl = document.querySelector('#password');
+const confirmPasswordEl = document.querySelector('#confirm-password');
+
+
+const form = document.querySelector('#signup');
+
+
+
+const checkUsername = () => {
+
+    let valid = false;
+
+    const min = 3,
+        max = 25;
+
+    const username = usernameEl.value.trim();
+
+    if (!isRequired(username)) {
+        showError(usernameEl, 'Username cannot be blank.');
+    } else if (!isBetween(username.length, min, max)) {
+        showError(usernameEl, `Username must be between ${min} and ${max} characters.`)
+    } else {
+        showSuccess(usernameEl);
+        valid = true;
+    }
+    return valid;
+};
+
+
+const checkEmail = () => {
+    let valid = false;
+    const email = emailEl.value.trim();
+    if (!isRequired(email)) {
+        showError(emailEl, 'Email cannot be blank.');
+    } else if (!isEmailValid(email)) {
+        showError(emailEl, 'Email is not valid.')
+    } else {
+        showSuccess(emailEl);
+        valid = true;
+    }
+    return valid;
+};
+
+const checkPassword = () => {
+    let valid = false;
+
+
+    const password = passwordEl.value.trim();
+
+    if (!isRequired(password)) {
+        showError(passwordEl, 'Password cannot be blank.');
+    } else if (!isPasswordSecure(password)) {
+        showError(passwordEl, 'Password must has at least 8 characters that include at least 1 lowercase character, 1 uppercase characters, 1 number, and 1 special character in (!@#$%^&*)');
+    } else {
+        showSuccess(passwordEl);
+        valid = true;
+    }
+
+    return valid;
+};
+
+const checkConfirmPassword = () => {
+    let valid = false;
+    // check confirm password
+    const confirmPassword = confirmPasswordEl.value.trim();
+    const password = passwordEl.value.trim();
+
+    if (!isRequired(confirmPassword)) {
+        showError(confirmPasswordEl, 'Please enter the password again');
+    } else if (password !== confirmPassword) {
+        showError(confirmPasswordEl, 'The password does not match');
+    } else {
+        showSuccess(confirmPasswordEl);
+        valid = true;
+    }
+
+    return valid;
+};
+
+const isEmailValid = (email) => {
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+};
+
+const isPasswordSecure = (password) => {
+    const re = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
+    return re.test(password);
+};
+
+const isRequired = value => value === '' ? false : true;
+const isBetween = (length, min, max) => length < min || length > max ? false : true;
+
+
+const showError = (input, message) => {
+    // get the form-field element
+    const formField = input.parentElement;
+    // add the error class
+    formField.classList.remove('success');
+    formField.classList.add('error');
+
+    // show the error message
+    const error = formField.querySelector('small');
+    error.textContent = message;
+};
+
+const showSuccess = (input) => {
+    // get the form-field element
+    const formField = input.parentElement;
+
+    // remove the error class
+    formField.classList.remove('error');
+    formField.classList.add('success');
+
+    // hide the error message
+    const error = formField.querySelector('small');
+    error.textContent = '';
+}
+
+
+form.addEventListener('submit', function (e) {
+    // prevent the form from submitting
+    e.preventDefault();
+
+    // validate fields
+    let isUsernameValid = checkUsername(),
+        isEmailValid = checkEmail(),
+        isPasswordValid = checkPassword(),
+        isConfirmPasswordValid = checkConfirmPassword();
+
+    let isFormValid = isUsernameValid &&
+        isEmailValid &&
+        isPasswordValid &&
+        isConfirmPasswordValid;
+
+    // submit to the server if the form is valid
+    if (isFormValid) {
+
+    }
+});
+
+
+const debounce = (fn, delay = 500) => {
+    let timeoutId;
+    return (...args) => {
+        // cancel the previous timer
+        if (timeoutId) {
+            clearTimeout(timeoutId);
+        }
+        // setup a new timer
+        timeoutId = setTimeout(() => {
+            fn.apply(null, args)
+        }, delay);
+    };
+};
+
+form.addEventListener('input', debounce(function (e) {
+    switch (e.target.id) {
+        case 'username':
+            checkUsername();
+            break;
+        case 'email':
+            checkEmail();
+            break;
+        case 'password':
+            checkPassword();
+            break;
+        case 'confirm-password':
+            checkConfirmPassword();
+            break;
+    }
+}));
+
+function myFunction() {
+  alert("You Have successfully created an account.");
+}
+
+// singin page validation
+function validateLoginForm() {
+    var username = document.getElementById("Lusername").value;
+    var password = document.getElementById("Lpassword").value;
+    var error = document.getElementById("Lerror");
+
+    if (username === "" || password === "") {
+        error.textContent = "Both fields are required.";
+        return false;
+    } else if (username !== "tejteja54321@gmail.com" || password !== "12345y78") {
+        error.textContent = "Invalid username or password.";
+        return false;
+    }
+
+    return alert("Hey Bro! We are Happy To welcome you To Our Fashion!!!!");
+}
+</script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+
+</body>
+{% endblock %}
+</html>

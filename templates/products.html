@@ -1,0 +1,132 @@
+{% extends 'common.html' %}
+
+<html lang="en">
+{% block content %}
+<head>
+
+    <meta charset="UTF-8">
+    <title>Your Own</title>
+    <link rel="stylesheet" href="/static/css/products.css">
+</head>
+<body id="main-body">
+<br><br><br><br><br><br>
+<form id="search-form" action="/searchbeforlogin" method="post" style="width: 90%; margin: 0 auto;">
+    <input type="text" id="search-input" name="query" placeholder="Search by Product Name"  >
+    <button type="submit" id="search-button" >Search</button>
+</form>
+
+<form id="filter-form" style="width:100%;display:flex" action="/filterbeforlogin" method="post">
+    <select id="category-filter" name="category">
+        <option value="All">Categories</option>
+        <option value="All">All</option>
+        <option value="shirt">shirt</option>
+        <option value="pant">pant</option>
+        <option value="tshirt">tshirt</option>
+        <option value="suite">suite</option>
+        <!-- Add more options for different categories -->
+    </select>
+    <button type="submit" id="filter-button">Filter</button>
+</form>
+
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="cartOffcanvas" aria-labelledby="cartOffcanvasLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="cartOffcanvasLabel">Shopping Cart</h5>
+
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    {{cart}}
+    <div class="offcanvas-body">
+        <ul id="cartItems">
+
+
+            <div class="cart-item">
+
+                    <div class="cart-item-image">
+                        <img src="${item.image}" alt="${item.name}">
+                    </div>
+                    <div class="cart-item-details">
+                        <div class="price-box">
+                            <p>${item.name}</p>
+                            <p>Price: $${item.price.toFixed(2)}</p>
+                        </div>
+                        <input class="quantity-input" type="number" value="${item.quantity}" min="1" data-id="${item.id}">
+                    </div>
+                    <p><b>Total</b><br> $<span class="total-amount">${(item.price * item.quantity).toFixed(2)}</span></p>
+                    <button class="remove-from-cart" data-id="${item.id}">Remove</button>
+                </div>
+
+        </ul>
+        <!-- cart content displays here -->
+
+
+        <div class="final-total">
+          <p><b>Final Total:</b> $<span id="final-total-amount">0.00</span></p>
+      </div>
+
+
+        <button id="checkout">Checkout</button>
+
+        {{cart}}
+    </div>
+</div>
+
+<section class="products">
+    {% for x in data2 %}
+    <div class="productcard">
+        <img src="static/upload/{{x[4]}}" alt="image">
+        <h3>{{x[1]}}</h3>
+        <p>Price: Rs. {{x[3]}}</p>
+        <button class="addtocart" data-id="{{x[0]}}">Add to Cart</button>
+    </div>
+    {% endfor %}
+</section>
+
+<script>
+    document.querySelectorAll('.addtocart').forEach(button => {
+        button.addEventListener('click', function(event) {
+            const itemId = button.dataset.id;
+
+            // Check if user is logged in (you need your own logic here)
+            const userLoggedIn = {{ 'cusid' in session and session['cusid']|lower }};
+
+            if (!userLoggedIn) {
+                event.preventDefault();
+                alert('Please log in to add items to your cart.');
+                // Redirect the user to the login page or perform any other action
+                // window.location.href = "{{ url_for('shoppingbag') }}"; // Example redirection
+            } else {
+                // Perform action for adding item to cart (You can use AJAX to send item ID to server)
+                // Example: Send an AJAX request to add the item to the cart
+                // Replace with your own logic
+                // fetch(`/add_to_cart/${itemId}`, { method: 'GET' })
+                //     .then(response => {
+                //         // Handle response
+                //     })
+                //     .catch(error => {
+                //         // Handle error
+                //     });
+            }
+        });
+    });
+
+    // Check if user is logged in when opening the cart offcanvas
+    document.getElementById('cartOffcanvas').addEventListener('show.bs.offcanvas', function(event) {
+        const userLoggedIn = {{ 'cusid' in session and session['cusid']|lower }};
+
+        if (!userLoggedIn) {
+            event.preventDefault();
+            alert('Please log in to view your cart.');
+            // Close the offcanvas or perform any other action
+            // document.getElementById('cartOffcanvas').classList.remove('show'); // Example of closing offcanvas
+        } else {
+            // Perform action to show the cart contents
+            // Replace with your logic to display cart contents
+            // Example: fetch cart contents from the server and display
+        }
+    });
+</script>
+
+</body>
+</html>
+{% endblock %}

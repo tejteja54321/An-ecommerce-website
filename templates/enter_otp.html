@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Enter OTP</title>
+    <style>
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('https://img.freepik.com/free-vector/locker_53876-25496.jpg?w=900&t=st=1702353910~exp=1702354510~hmac=79fe6302ad056d208a75cd82dc0259d590175fce908b9c8144bcf1fa2ddd44ef');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    text-align: center;
+    background-color: rgba(169, 169, 169, 0.6);  /* Adjust the transparency as needed */
+    padding: 100px;
+    border-radius: 8px;
+}
+
+.title {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.container {
+    margin-top: 20px;
+}
+
+.container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container form label {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.container form input[type="text"],
+.container form input[type="submit"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.container form input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+.container form input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+/* Other styles remain unchanged */
+
+.title {
+    font-size: 32px;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeIn 1.5s forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+    </style>
+</head>
+<body id="enterotp">
+    <div class="content">
+        <h1 class="title">Enter OTP</h1>
+        <div class="container">
+            <form method="POST" action="/verify_otp">
+                <label>OTP:</label>
+                <input type="text" name="otp" required>
+                <input type="submit" value="Submit">
+            </form>
+            {% if error %}
+                <p >{{ error }}</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

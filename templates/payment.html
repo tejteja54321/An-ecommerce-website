@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment Page</title>
+    <style>
+        /* Basic styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 20px;
+        }
+        /* Form styling */
+        input[type="text"],
+        input[type="email"],
+        select {
+            width: calc(100% - 22px);
+            padding: 8px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .payment-methods label {
+            display: inline-block;
+            margin-right: 15px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Enter Details</h2>
+        <form id="details-form" action="/checkout" method="post">
+            <label for="fullname">Full Name</label>
+            <input type="text" id="fullname" name="fullname" placeholder="Full Name" required><br>
+            <label for="address">Address</label>
+            <input type="text" id="address" name="address" placeholder="address" required><br>
+            <label for="pin">Pin Code</label>
+            <input type="text" id="pin" name="pin" placeholder="PinCode" required><br>
+
+            <h3>Select Payment Method</h3>
+            <div class="paymentmethod">
+
+                <input type="radio" id="paytm" name="paymentmethod" value="paytm" required>
+                <label for="paytm">PayTm</label>
+
+                <br>
+                <input type="radio" id="gpay" name="paymentmethod" value="gpay" required>
+                <label for="gpay">GPay</label>
+                <br>
+                <input type="radio" id="phonepay" name="paymentmethod" value="phonepay" required>
+                <label for="phonepay">PhonePay</label>
+                <!-- Add more payment methods -->
+            </div>
+
+            <button type="submit">Checkout</button>
+        </form>
+
+        <hr>
+
+        <div class="container">
+            <h2>Cart</h2>
+            <ul class="cart-items">
+
+                <table>
+                    <tr>
+                        <th>ItemName</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                    </tr>
+                    {% for x in data %}
+                    <tr>
+                        <td>{{x[2]}}</td>
+                        <td>{{x[3]}}</td>
+                        <td>=>{{x[4]}}</td>
+                        <td>{{x[4]*x[3]}}</td>
+
+                    </tr>
+                    {% endfor %}
+                </table>
+
+
+            </ul>
+            <hr>
+            <p>Total Price: {{total}}</p>
+        </div>
+    </div>
+</body>
+</html>

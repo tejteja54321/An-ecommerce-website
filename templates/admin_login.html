@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOUROWN</title>
+
+    <link rel="stylesheet" href="/static/css/admin_login.css">
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" >
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+</head>
+
+<body id="main-body">
+<div class="main">
+
+<!--Nav start-->
+<div class="nav-main">
+
+<!--1st navbar-->
+    <nav class="navbar navbar-expand-lg nav1" >
+        <div class="container-fluid inside">
+            <img class="navbar-brand " src="static/upload/logofinal-01.png
+            " style="width:150px ;height:50px;" id="navbar-logo">
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+
+                <div class="collapse navbar-collapse inside-inside" id="navbarSupportedContent">
+                  <ul class="navbar-nav " >
+                    <li class="nav-item ">
+                      <a class="nav-link " aria-current="page" href="#viewusers" >VIEW USERS</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#addproduct">INSERT PRODUCTS</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#viewproducts">VIEW PRODUCTS</a>
+                    </li>
+                      <li class="nav-item">
+                      <a class="nav-link" href="#viewcart">VIEW CART</a>
+                    </li>
+                      <li class="nav-item">
+                      <a class="nav-link" href="#viewpayment">VIEW PAYMENT DETAILS</a>
+                    </li>
+                      <li class="nav-item">
+                      <a class="nav-link" href="#viewappointment">VIEW APPOINTMENT DETAILS</a>
+                    </li>
+
+
+                  </ul>
+                </div>
+
+
+            <div class="user-logo">
+                  <i class="fa-solid fa-user" id="logo-user" onclick="toggleMenu()"></i>
+                </div>
+                <div class="sub-menu-wrap" id="subMenu">
+                    <div class="sub-menu">
+                        <div class="user-info">
+                            <img src="static/upload/IMG-6892.JPG" alt="" >
+                            <h2>TEJA</h2>
+                        </div>
+                        <hr>
+
+                        <a href="" class="sub-menu-link">
+                            <i class="fa-solid fa-user"></i>
+                            <p>tejetja54321@gmail.com</p>
+                            <span>></span>
+                        </a>
+
+
+                        <a href="/logout" class="sub-menu-link">
+                            <i class="fa-solid fa-right-from-bracket"></i>
+
+                            <p>LogOut</p>
+                            <span>></span>
+                        </a>
+                    </div>
+                </div>
+
+
+            <div class="dark-mode">
+                <img src="static/upload/moon.png" alt="" id="moon-icon">
+            </div>
+        </div>
+      </nav>
+<!--!st navbar-->
+
+</div>
+<!--Nav end-->
+    <br><br><br><br><br>
+<div id="viewusers">
+<table id="cust_table">
+
+    <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>EMAIL</th>
+        <th>Phone Number</th>
+        <th>Image</th>
+    </tr>
+    {% for x in data2 %}
+    <tr>
+        <td>{{x[0]}}</td>
+        <td>{{x[1]}}</td>
+        <td>{{x[2]}}</td>
+        <td>{{x[5]}}</td>
+        <td><img src="/static/upload/{{x[6]}}" style="width:100px;height:100px"></td>
+    </tr>
+    {% endfor %}
+</table>
+
+</div>
+<br>
+<hr>
+<br>
+{{msg}}
+<div id="addproduct">
+<form id="addProductForm" action="/addProduct" method="post" enctype="multipart/form-data">
+    <label for="productId">ProductId</label>
+    <input type="text" name="productId" id="productId" required><br><br>
+
+    <label for="productName">Product Name:</label>
+    <input type="text" name="productName" id="productName" required><br><br>
+
+    <label for="productCategory">Category:</label>
+    <input type="text" name="productCategory" id="productCategory" required><br><br>
+
+    <label for="productPrice">Price:</label>
+    <input type="number" name="productPrice" id="productPrice" required><br><br>
+
+    <label for="productImage">Image </label>
+    <input type="file" name="productImage" id="productImage" required><br><br>
+
+    <input type="submit" value="Add Product">
+
+</form>
+</div>
+
+
+<div id="viewproducts">
+
+<form >
+<table style="width:100%">
+    <tr>
+        <th>PRODUCT ID</th>
+        <th>PRODUCT NAME</th>
+        <th>PRODUCT CATEGORY</th>
+        <th>PRODUCT PRICE</th>
+        <th>PRODUCT IMAGE</th>
+        <th>DELETE PRODUCT</th>
+        <th>UPDATE PRODUCT PRICE</th>
+    </tr>
+    {% for i in products %}
+    <tr>
+        <td>{{i[0]}}</td>
+        <td>{{i[1]}}</td>
+        <td>{{i[2]}}</td>
+        <td><input type="text" class="update-price-input" value="{{ i[3] }}"></td>
+        <td><img src="static/upload/{{i[4]}}" style="width:100px;height:100px"></td>
+        <td><a href="/deleteproduct?pid={{i[0]}}">Delete</a></td>
+<!--        <td><a href="/updateprice?pid={{i[0]}}">Update Price</a></td>-->
+        <td><a href="#" class="update-price-btn" data-pid="{{ i[0] }}">Update Price</a></td>
+
+
+    </tr>
+    {% endfor %}
+</table>
+</form>
+
+
+</div>
+<br><hr><br>
+
+<div id="viewcart">
+    <h1>CART DATA</h1>
+<form >
+<table style="width:100%">
+    <tr>
+        <th>CART ID</th>
+        <th>CUSTOMER ID</th>
+        <th>CUSTOMER EMAIL</th>
+        <th>PRODUCT ID</th>
+        <th>PRODUCT QUANTITY</th>
+
+    </tr>
+    {% for i in cart %}
+    <tr>
+        <td>{{i[0]}}</td>
+        <td>{{i[1]}}</td>
+        <td>{{i[2]}}</td>
+        <td>{{i[3]}}</td>
+        <td>{{i[4]}}</td>
+
+
+
+    </tr>
+    {% endfor %}
+</table>
+</form>
+
+
+</div>
+
+
+    <div id="viewpayment">
+    <h1>PAYMENT DETAILS DATA</h1>
+<form >
+<table style="width:100%">
+    <tr>
+        <th>PAYMENT ID</th>
+        <th>CUSTOMER ID</th>
+        <th>NO.OF ITEMS</th>
+        <th>AMOUNT</th>
+        <th>PAYMENT METHOD</th>
+        <th>PAYMENT DATE</th>
+        <th>PRODUCTS</th>
+        <th>FULL NAME</th>
+        <th>ADDRESS</th>
+
+    </tr>
+    {% for i in payment %}
+    <tr>
+        <td>{{i[0]}}</td>
+        <td>{{i[1]}}</td>
+        <td>{{i[2]}}</td>
+        <td>{{i[3]}}</td>
+        <td>{{i[4]}}</td>
+        <td>{{i[5]}}</td>
+        <td>{{i[6]}}</td>
+        <td>{{i[7]}}</td>
+        <td>{{i[8]}}</td>
+    </tr>
+    {% endfor %}
+</table>
+</form>
+
+
+</div>
+
+
+    <div id="viewappointment">
+    <h1>APPOINTMENT DETAILS DATA</h1>
+<form >
+<table style="width:100%">
+    <tr>
+        <th>ID</th>
+        <th>CUSTOMER ID</th>
+        <th>NAME</th>
+        <th>EMAIL</th>
+        <th> CONTACT NO</th>
+        <th>ADDRESS</th>
+        <th>SESSION</th>
+        <th>DATE OF APPOINTMENT</th>
+
+    </tr>
+    {% for i in appointment %}
+    <tr>
+        <td>{{i[0]}}</td>
+        <td>{{i[1]}}</td>
+        <td>{{i[2]}}</td>
+        <td>{{i[3]}}</td>
+        <td>{{i[4]}}</td>
+        <td>{{i[5]}}</td>
+        <td>{{i[6]}}</td>
+        <td>{{i[7]}}</td>
+
+    </tr>
+    {% endfor %}
+</table>
+</form>
+
+
+</div>
+
+
+
+
+<!--Footer start-->
+<footer>
+  <div class="s1">
+    <div class="personal">
+      <p>tejteja54321@gmail.com <br>
+        +91 7702080490</p>
+    </div>
+    <div class="location" >
+      <i class="fa-solid fa-location-dot"></i>
+      <a href="29, 18, 17th E Main Rd, 5th Block, Jedara Halli, Rajajinagar, Bengaluru, Karnataka 560010">29, 18, 17th E Main Rd,<br> 5th Block, Jedara Halli, <br>Rajajinagar, Bengaluru, Karnataka 560010</a>
+      </div>
+      <div class="social text-light">
+        <a href="https://www.instagram.com/rey__tej/"><i class="fa-brands fa-instagram me-2" style="font-size: 30px"> </i> Instagram</a>
+        <a href="https://web.whatsapp.com/"><i class="fa-brands fa-whatsapp me-2" style="font-size: 30px"></i> whatsapp</a>
+        <a href="https://twitter.com/i/flow/login"><i class="fa-brands fa-twitter me-2" style="font-size: 30px"></i>Twitter</a>
+        <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook me-2" style="font-size: 30px"></i>Facebook</a>
+        </div>
+    </div>
+
+
+  <div class="s2">
+    <div class="copy-right " id="copy-right">
+      <p>© 2023 Condé Nast. All rights reserved.</p>
+  </div>
+  </div>
+</footer>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $('.update-price-btn').on('click', function(e) {
+            e.preventDefault();
+
+            let productId = $(this).data('pid'); // Get the product ID
+            let updatedPrice = $(this).closest('tr').find('.update-price-input').val(); // Get the updated price
+
+            // Send a POST request to update the price
+            $.ajax({
+                type: 'POST',
+                url: '/updateprice',
+                data: {
+                    productId: productId,
+                    updatedPrice: updatedPrice
+                },
+                success: function(response) {
+                    // Handle success, if needed
+                    console.log('Price updated successfully');
+                    // Optionally update the UI to reflect the new price
+                },
+                error: function(error) {
+                    // Handle errors, if any
+                    console.error('Error updating price:', error);
+                }
+            });
+        });
+    });
+</script>
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+<script src="static/js/shoppingbag.js">
+
+
+
+
+
+</script>
+</div>
+</body>
+</html>

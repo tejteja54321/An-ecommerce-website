@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+ <div class="offcanvas offcanvas-end" tabindex="-1" id="cartOffcanvas" aria-labelledby="cartOffcanvasLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="cartOffcanvasLabel">Shopping Cart</h5>
+
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        {% for x in cart %}
+        <ul id="cartItems">
+
+            <div class="cart-item">
+
+                    <div class="cart-item-image">
+                        <img src="static/upload/{{x[5]}}" alt="Image">
+                    </div>
+                    <div class="cart-item-details">
+                        <div class="price-box">
+                            <p>{{x[3]}}</p>
+                            <p>Price: Rs. {{x[4]}}</p>
+                        </div>
+                        <input class="quantity-input" type="number" value="{{x[6]}}" min="1" data-id="${item.id}">
+                    </div>
+                    <p><b>Total</b><br> Rs.<span class="total-amount">{{x[4]*x[6]}}</span></p>
+                    <button class="remove-from-cart" data-id="${item.id}"> <a style="text-decoration:none" href="/removefromcart?pid={{x[2]}}" class="my-link" methods="post">Remove</a> </button>
+                </div>
+
+        </ul>
+        {% endfor %}
+        <!-- cart content displays here -->
+
+        <div class="final-total">
+          <p><b>Final Total:</b> $<span id="final-total-amount">{{total}}</span></p>
+      </div>
+
+        <button id="checkout" ><a href="/payment">Checkout</a></button>
+    </div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,167 @@
+{% extends 'common.html' %}
+<html lang="en">
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOUROWN</title>
+
+    <link rel="stylesheet" href="static/css/rental.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" >
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body id="main-body" onload="myBFunction()">
+<div class="main"> 
+
+
+<!-- create start -->
+<div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active" style="position: relative; z-index: 1;">
+        <img src="static/upload/suite1.jpg" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block" style="position: absolute; top: 50%; left: 50%;
+        transform: translate(-50%,-50%);">
+            <h5>THE <br> FUTURE <br>OF YOUR <br>WARDROBE.</h5>
+            <br><br><a href=""><button >Rent Wedding wear</button></a>
+            <a href=""><button >Rent Party wear</button></a>
+          </div>
+      </div>
+      <div class="carousel-item" style="position: relative; z-index: 1;">
+        <img src="static/upload/suite2.jpg" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block carousel-caption2" >
+            <h5>STYLE IS <br> YOUR CHOICE.</h5>
+            <p>MAKE YOURS.</p>
+            <a href=""><button>Rent Wedding wear</button></a>
+            <a href=""><button>Rent Party wear</button></a>
+          </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <div class="part2">
+    <div class="img">
+        <img src="static/upload/suite4.jpg" alt="">
+        <div class="text">
+            <h1>For Party</h1>
+        </div>
+    </div>
+    <div class="img">
+        <img src="static/upload/suite5.jpg" alt="">
+        <div class="text">
+            <h1>For Wedding</h1>
+        </div>
+    </div>
+  </div>
+
+  <div class="part3">
+    <div class="s1">
+        <div class="dis">
+            <div class="icon"><i class="fa-solid fa-hand-pointer" style="font-size:30px;"></i></div>
+            <br>
+            <h1>1. MAKE YOUR CHOICE</h1>
+            <br>
+            <p>Browse through our exclusive collection <br>and pick an outfit to lease with ease.</p>
+        </div>
+        <div class="dis">
+            <div class="icon"><i class="fa-solid fa-wand-magic-sparkles" style="font-size:30px;"></i></div>
+            <br>
+            <h1>2. THE DREAM FIT</h1>
+            <br>
+            <p>Select your size, the preferred duration <br>and the date of delivery.</p>
+        </div>
+        <div class="dis">
+            <div class="icon"><i class="fa-brands fa-openid" style="font-size:30px;"></i></div>
+<br>
+            <h1>3. STYLE YOUR LOOK</h1>
+            <br>
+            <p>Amp up your game with accessories <br>from our specially curated collection to complement <br>
+                 your look.</p>
+        </div>
+    </div>
+    <div class="s2">
+        <div class="dis">
+            <div class="icon"><i class="fa-solid fa-door-open" style="font-size:30px;"></i></div>
+            <br>
+            <h1>4. DELIVERY TO YOUR DOORSTEP</h1>
+            <br>
+            <p>Sit back and relax after check out <br> as we custom fit the outfit to your measurements for a <br> hassle free experience.</p>
+
+        </div>
+        <div class="dis">
+            <div class="icon"><i class="fa-brands fa-mandalorian" style="font-size:30px;"></i></div>
+            <br>
+            <h1>5. LOOK PICTURE PERFECT</h1>
+            <br>
+            <p>Own your look and turn heads wherever <br>you go. Don't worry, the pick up is on us!</p>
+        </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+<div >
+  <form action="#" class="appointment" id="appointment" onsubmit="return validateForm()">
+
+    <h1>Rent a Suite</h1>
+    <input type="text" placeholder="Your Name *" required id="name" onchange="upperCase()" name="name">
+            <span id="nameError" class="error"></span>
+            
+            <input type="email" placeholder="Email *" required id="email" name="email">
+            <span id="emailError" class="error"></span>
+    
+            <input type="number" placeholder="Phone *" required id="phone" name="phone">
+            <span id="phoneError" class="error"></span>
+            
+    
+            <input type="text" placeholder="City *" required id="city" name="city">
+            <span id="cityError" class="error"></span>
+    
+            <select class="formselect" id="validationDefault04" required>
+              <option selected disabled value="">Suite name</option>
+              <option>Suite1</option>
+              <option>Suite2</option>
+              <option>Suite3</option>
+              <option>Suite4</option>
+            </select>
+    
+            <input type="date" placeholder="Date *" required id="date" name="date">
+            <span id="dateError" class="error"></span>
+            
+    
+<!--                        <button type="submit"><a data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" class="sin sub-menu-link" >Please Login Bro...</a></button>-->
+
+            <button type="submit">Please Login Bro...</button>
+    
+    </form>
+  </div>
+
+<!-- create end -->
+<!--Footer start-->
+
+
+<script src="static/js/rental.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script> 
+    </div> 
+    
+</body>
+
+{% endblock %}
+</html>

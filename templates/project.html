@@ -1,0 +1,200 @@
+{% extends 'common.html' %}
+
+<html lang="en">
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOUROWN</title>
+
+    <link rel="stylesheet" href="/static/css/project.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" >
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+
+</head>
+<body id="main-body">
+
+
+<div class="main">
+<!--home start-->
+
+<div id="#home">
+<div class="psec1">
+  <video autoplay muted loop>
+      <source src="/static/upload/video2.mp4" type="video/mp4">
+    </video>
+    <div class="text-headline" >
+      <h1>The GentleMen Guide to Timeless Fashion.{{msg}}</h1>
+      <p><i> The Evolution of Men's Fashion: Past, Present, and Future.</i></p>
+  </div>
+</div>
+<br><br><br><br><br>
+<!--recommendation page-->
+<div class="psec3">
+    <h1>Our Favourite <b>Recommendations</b> For You</h1>
+    <p  onmouseenter="bigtxt(this)" onmouseleave="normaltxt(this)">Highlight the current fashion trends and how they can be your favorite looks & <br>Share ideas for everyday, comfortable, and stylish looks.</p>
+    <button onclick="openFullscreen();">Go Fullscreen Mode</button>
+    <button onclick="closeFullscreen();">Close Fullscreen</button>
+<br><br>
+    <div class="grid-wrapper">
+      
+           <div id="pi">
+            <img src="/static/upload/sec3-9.jpg" alt="" class="image">
+             <div class="overlay">
+              <div class="text">Hello World</div>
+            </div>
+           </div>
+
+           <div id="pi">
+            <img src="/static/upload/sec3-2.jpg" alt="" class="image">
+            <div class="overlay">
+              <div class="text">Leather jackets exude timeless and cool fashion. <br>Instantly elevate any outfit. </div>
+            </div>
+            </div>
+       
+         <div id="pi">
+            <img src="/static/upload/sec3-10.jpg" alt="" class="image">
+            <div class="overlay">
+              <div class="text">Yellow is the warm sun while a cool breeze blows on your face.</div>
+            </div>
+         </div>
+
+         <div id="pi">
+            <img src="/static/upload/sec3-6.jpg" alt="" class="image">
+            <div class="overlay">
+              <div class="text">Hello World</div>
+            </div>
+         </div>
+
+         <div id="pi">
+            <img src="/static/upload/sec3-11.jpg" alt="" class="image">
+            <div class="overlay">
+              <div class="text">Hello World</div>
+            </div>
+         </div>
+
+         <div id="pi">
+            <img src="/static/upload/sec3-12.jpg" alt="">
+            <div class="overlay">
+              <div class="text">Hello World</div>
+            </div>
+         </div>
+
+    </div>
+</div>
+<!--recommendation page end-->
+<br><br>
+<div class="sec4-h"><h1>New FASHION weeK</h1></div>
+<div class="sec4">
+    <div class="image1">
+        <img src="/static/upload/handsome-young-man-park.jpg" alt="">
+        <h3><a href="/trends">Trendy 2023 Collection</a></h3>
+        <h4>Discover & Pre-order</h4>
+    </div>
+    <div class="image2" >
+        <img src="/static/upload/young-man-shopping-menswear-store-talking-phone.jpg" alt="">
+        <h2>Create <br> Your Style</h2>
+        <a href="/Create"><button>Book an Appointment</button></a>
+    </div>
+</div>
+
+
+
+<div class="sec2 ">
+  <h1>Fall 2023 <br> Lookbook</h1>
+  <p>Colours, Proportions & Design Elements <br> Work Together to Create a Vision of the Stylish Men.</p>
+</div>
+<!-- Advertisement like popup message -->
+<div id="popup" class="popup" style="display: none;">
+  <div class="popup-content">
+      <span class="close" id="close-popup">&times;</span>
+      <h2>Special Offer!</h2>
+      <p>Get 50% off on your first purchase. Use code: SPECIAL20</p>
+      <img src="/static/upload/popup.jpg" alt="">
+  </div>
+</div>
+
+<!-- Advertisement like popup message -->
+  <div class="secn">
+    
+    <div class="cards row">
+      <div class="card" >
+        <img src="https://image.hm.com/ffc/share%2Fassets%2F2023%2F3088%2FMain-desktop-1.png?imwidth=564" class="card-img-top" alt="...">
+        <div class="card-body" >
+          <p class="card-text">ZARA MEN BELTED DOUBLE BREASTED COAT
+           <br> Rs.141.00</p>
+        </div>
+        <h1>SMART</h1>
+        <a href="/shoppingbag"><button>View now</button></a>
+      </div>
+      
+      <div class="card" >
+        <img src="https://image.hm.com/ffc/share%2Fassets%2F2023%2F3088%2FMain-desktop-3.png?imwidth=396" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-text">GUCCI STREET WEAR <br>$143.00
+          </p>
+        </div>
+        <h1>CASUAL</h1>
+        <a href="/shoppingbag"><button>View now</button></a>
+      </div>
+      <div class="card " >
+        <img src="https://image.hm.com/ffc/share%2Fassets%2F2023%2F3088%2FMain-desktop-2.png?imwidth=396" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-text">CALVIN KLEIN BLACK JACKET <br>
+            Rs.131.00 <del>Rs.143.00</del></p>
+        </div>
+        <h1>STREET</h1>
+        <a href="/shoppingbag"><button>View now</button></a>
+      </div>
+    </div>
+  </div>
+</div>
+<!--home ends-->
+
+
+
+
+<!--Chat button start-->
+<!--Chat button start-->
+<!--<button id="chat-button"><i class="fa-solid fa-headset"></i></button>-->
+
+
+<!--&lt;!&ndash; Chatbot container (initially hidden) &ndash;&gt;-->
+<!--<div id="chatbot" style="display: none;">-->
+<!--  <div id="chat-container">-->
+<!--      <div id="chat-output">-->
+<!--          &lt;!&ndash; Chat messages go here &ndash;&gt;-->
+<!--      </div>-->
+<!--      <div id="user-input">-->
+<!--          <input type="text" id="user-message" placeholder="Type your message...">-->
+<!--          <button id="send">Send</button>-->
+<!--      </div>-->
+<!--  </div>-->
+<!--</div>-->
+<!--&lt;!&ndash;chat button end&ndash;&gt;-->
+
+
+{% if alert %}
+        <script>
+            alert("{{ alert }}");
+        </script>
+{% endif %}
+
+</div>
+
+<script src="static/js/project.js"></script> 
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+
+</body>
+{% endblock %}
+</html>

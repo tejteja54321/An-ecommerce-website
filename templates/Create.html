@@ -1,0 +1,168 @@
+{% extends 'common.html' %}
+<html lang="en">
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOUROWN</title>
+
+    <link rel="stylesheet" href="static/css/create.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" >
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body id="main-body">
+<div class="main"> 
+
+
+
+
+<!-- create start -->
+<div class="cmain">
+  <div class="chead">
+    <h1>Create Your New Style</h1>
+    <p>Work With Our Stylist</p>
+  </div>
+  <div class="curoselhead">
+    <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="10000">
+          <img src="static/upload/bot5.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item" data-bs-interval="2000">
+          <img src="static/upload/bot6.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="static/upload/bot4.jpg" class="d-block w-100" alt="...">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+  <div class="sec1">
+  <p>Vision Stylists provide a highly personalized shopping experience. From wardrobe-building to event-specific dressing, Stylists understand the fashion demands of your lifestyle and guide you to solutions you will love. Its a unique, intimate approach to luxury shopping that keeps women in the know looking fabulous. Alco we offer a range of styling options so you can any time and how you want.</p>
+
+  <h2>It's <i>easy </i>as 1,2,3</h2>
+</div>
+  <div class="sec2">
+    <div class="season">
+      <div class="card" style="border-radius:0; border:none;width: 20rem;">
+          <img src="static/upload/summ-1.jpg" class="card-img-top" alt="..."style="border-radius:0;">
+          <div class="overlay">
+            <div class="text">Book an appointment</div>
+            <div class="text txt1">Together with your stylist you could create a new look what meet your needs.</div>
+          </div>
+      </div>
+      <div class="card" style="border-radius: none; border:none;width: 20rem;">
+          <img src="static/upload/win-1.jpg" class="card-img-top" alt="..."style="border-radius:0;">
+          <div class="overlay">
+            <div class="text">Together, we shop for you</div>
+            <div class="text txt1">Together with your stylist you could create a new look what meet your needs.</div>
+          </div>
+      </div>
+      <div class="card" style="border-radius: none; border:none;width: 20rem;">
+          <img src="static/upload/formal.jpg" class="card-img-top" alt="..."style="border-radius:0;">
+          <div class="overlay">
+            <div class="text">We stay in touch</div>
+            <div class="text txt1">You'll be hearing from us before, after and between appointment to help build your wardrobe season after season.</div>
+          </div>
+      </div>
+  </div>
+  </div>
+
+
+
+  <div class="sec3">
+    <h1>Pricing Table </h1>
+    <div class="sec3main">
+      <div class="c1">
+        <h3>Personal Session</h3>
+        <p>Perfect for daily needs</p>
+        <h1>$250.90</h1>
+        <p>2 - hours with stylist <br>shopping with stylist <br>2 additional consultation other <br>phone</p>
+        <a href="#appointment"><button>Book an Appointment</button></a>
+      </div>
+      <div class="c1">
+        <h3>Long Session</h3>
+        <p>Perfect for special occasion</p>
+        <h1>$350.00</h1>
+        <p>4 - hours with stylist <br>shopping with stylist <br>2 additional meeting with the stylish<br>2 additional consultation other <br>phone</p>
+        <a href="#appointment"><button>Book an Appointment</button></a>
+      </div>
+      <div class="c1">
+        <h3>Regular Session</h3>
+        <p>Perfect for daily needs</p>
+        <h1>$400.00</h1>
+        <p>4 - hours with stylist <br>shopping with stylist<br>10 additional meeting with the stylish <br>5 additional consultation other <br>phone</p>
+        <a href="#appointment"><button>Book an Appointment</button></a>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<div >
+  <form action="#" class="appointment" id="appointment" onsubmit="return validateForm()" >
+  
+  <h1 onmouseover="mOver(this)" onmouseout="mOut(this)">Book an Appointment</h1>
+  <input type="text" placeholder="Your Name *" required id="name"  name="name" onchange="upperCase()">
+          <span id="nameError" class="error"></span>
+          
+          <input type="email" placeholder="Email *" required id="email" name="email">
+          <span id="emailError" class="error"></span>
+  
+          <input type="number" placeholder="Phone *" required id="phone" name="phone">
+          <span id="phoneError" class="error"></span>
+          
+  
+          <input type="text" placeholder="City *" required id="city" name="city">
+          <span id="cityError" class="error"></span>
+  
+          <select class="formselect" id="validationDefault" required onchange="whichFunction1()">
+            <option selected disabled value="">Session Type</option>
+            <option>Personal Session1</option>
+            <option>Long Session2</option>
+            <option>Regular Session3</option>
+          </select>
+  
+          <input type="date" placeholder="Date *" required id="date" name="date">
+          <span id="dateError" class="error"></span>
+          
+  
+<!--                      <button type="submit"><a data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" class="sin sub-menu-link" >Please Login Bro...</a></button>-->
+
+          <button type="submit">Please Login Bro...</button>
+  
+  </form>
+  </div>
+
+<!-- create end -->
+<!--Footer start-->
+
+
+<script src="static/js/create.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script> 
+
+     
+</body>
+{% endblock %}
+</html>

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOUROWN</title>
+
+    <link rel="stylesheet" href="/static/css/cartstyle.css">
+    <style>
+        .error {
+      color: red;
+      font-size: 12px;
+    }
+    </style>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" >
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<script>
+function validateUsername() {
+    var username = document.getElementById("username").value;
+    var usernameError = document.getElementById("username-error");
+
+    if (username.length < 3 || username.length > 25) {
+      usernameError.textContent = "Username must be between 3 and 25 characters";
+      return false;
+    } else {
+      usernameError.textContent = "";
+      return true;
+    }
+  }
+
+  function validateEmail() {
+    var email = document.getElementById("email").value;
+    var emailError = document.getElementById("email-error");
+    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailPattern.test(email)) {
+      emailError.textContent = "Please enter a valid email address";
+      return false;
+    } else {
+      emailError.textContent = "";
+      return true;
+    }
+  }
+
+  function validatePassword() {
+    var password = document.getElementById("password").value;
+    var passwordError = document.getElementById("password-error");
+    var passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+    if (!passwordPattern.test(password)) {
+      passwordError.textContent = "Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one digit, and one special character";
+      return false;
+    } else {
+      passwordError.textContent = "";
+      return true;
+    }
+  }
+
+  function validateConfirmPassword() {
+    var password = document.getElementById("password").value;
+    var confirmPassword = document.getElementById("confirm-password").value;
+    var confirmPasswordError = document.getElementById("confirm-password-error");
+
+    if (password !== confirmPassword) {
+      confirmPasswordError.textContent = "Passwords do not match";
+      return false;
+    } else {
+      confirmPasswordError.textContent = "";
+      return true;
+    }
+  }
+
+  function validatePhoneNumber() {
+    var phoneNumber = document.getElementById("phone").value;
+    var phoneError = document.getElementById("phone-error");
+    var phonePattern = /^[6-9]\d{9}$/;
+
+    if (!phonePattern.test(phoneNumber)) {
+      phoneError.textContent = "Phone number should be 10 digits and start with 6, 7, 8, or 9";
+      return false;
+    } else {
+      phoneError.textContent = "";
+      return true;
+    }
+  }
+
+  function validateForm() {
+    return (
+      validateUsername() &&
+      validateEmail() &&
+      validatePassword() &&
+      validateConfirmPassword() &&
+      validatePhoneNumber()
+    );
+  }
+</script>
+</head>
+
+<body id="main-body">
+<div class="main">
+
+    <!--Nav start-->
+<div class="nav-main">
+
+<!--1st navbar-->
+    <nav class="navbar navbar-expand-lg nav1" >
+        <div class="container-fluid inside">
+            <img class="navbar-brand " src="static/upload/logofinal-01.png
+            " style="width:150px ;height:50px;" id="navbar-logo">
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+
+                <div class="collapse navbar-collapse inside-inside" id="navbarSupportedContent">
+                  <ul class="navbar-nav " >
+                    <li class="nav-item ">
+                      <a class="nav-link " aria-current="page" href="/" >HOME</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/shoppingbag">SHOPPING</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/trends">TRENDS</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link " href="/media">MEDIA</a>
+                    </li>
+                    <li class="nav-item" >
+                      <a class="nav-link " href="/about">ABOUT US</a>
+                    </li>
+
+                  </ul>
+                </div>
+                <div class="cartlogo box" >
+                    <div class="cart-count">0</div>
+                    <i class="fa-solid fa-bag-shopping" id="toggleCart" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas"></i>
+
+                </div>
+
+            <div class="user-logo">
+                  <i class="fa-solid fa-user" id="logo-user" onclick="toggleMenu()"></i>
+                </div>
+                <div class="sub-menu-wrap" id="subMenu">
+                    <div class="sub-menu">
+                        <div class="user-info">
+                            <img src="static/upload/bd_me.jpg" alt="" >
+                            <h2>YOUR NAME</h2>
+                        </div>
+                        <hr>
+
+                        <a href="" class="sub-menu-link">
+                            <i class="fa-solid fa-user"></i>
+                            <p>Edit Profile</p>
+                            <span>></span>
+                        </a>
+                        <a href="" class="sub-menu-link">
+                            <i class="fa-solid fa-gear"></i>
+
+                            <p>Settings & Privacy</p>
+                            <span>></span>
+                        </a>
+                        <a href="" class="sub-menu-link">
+                            <i class="fa-solid fa-circle-info"></i>
+
+                            <p>Help & Support</p>
+                            <span>></span>
+                        </a>
+                        <a data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" class="sin sub-menu-link" >
+                            <i class="fa-solid fa-right-from-bracket"></i>
+
+                            <p>LogIn</p>
+                            <span>></span>
+                        </a>
+                    </div>
+                </div>
+
+
+            <div class="dark-mode">
+                <img src="static/upload/moon.png" alt="" id="moon-icon">
+            </div>
+
+
+        </div>
+      </nav>
+<!--!st navbar-->
+
+
+<!--2nd navbar-->
+
+      <div class="second-nav nav2" >
+          <a class="nav-link" href="/lookbook">LOOKBOOK</a>
+          <a class="nav-link" href="/botique">BOTIQUE</a>
+          <a class="nav-link" href="/rental">RENTALS</a>
+          <a class="nav-link" href="/Create">CREATE YOUR OWN</a>
+
+          <div class="register">
+            <a data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" class="sin">
+              Singin/Register
+            </a>
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+              <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasExampleLabel"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+              </div>
+              <div class="offcanvas-body">
+                  <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                      <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne " style="background-color: black; color: white; border: none;border-radius: none;  font-size: x-large;">Sign In
+                        </button>
+                      </h2>
+                      <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                          <form id="loginForm" onsubmit="return validateLoginForm()" action="/loginpage" method="post">
+
+                            <input type="email" id="Lusername" name="Lusername" required placeholder="Email*"  ><br><br>
+
+
+                            <input type="password" id="Lpassword" name="Lpassword" required placeholder="Password*" >
+                            <a href="/forgot_password" style="text-decoration: none;float: right;">Forget password?</a><br><br>
+                            <p id="Lerror" style="color: red;"></p>
+                            <p id="Ldemo" style="color: rgb(47, 170, 39);"></p>
+
+                            <input type="submit" value="Login" id="Lsubmit">
+                        </form>
+                        </div>
+                      </div>
+                    </div>
+                    <br>
+                    <hr>
+                    <div class="accordion-item">
+                      <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="background-color: black; color: white; border: none;border-radius: none; font-size: x-large;">
+                          Register
+                        </button>
+                      </h2>
+                      <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample" >
+                        <div class="accordion-body">
+                         <form action="/register" onsubmit="return validateForm()" method="post" enctype="multipart/form-data" >
+
+                            <div class="form-field">
+                              <input type="text" placeholder="User Name*" id="username" name="username" onkeyup="validateUsername()" required>
+                              <small class="error" id="username-error"></small>
+                              <br>
+                            </div>
+                            <div class="form-field">
+                              <input type="text" placeholder="Email*" id="email" name="email" onkeyup="validateEmail()" required>
+                              <small class="error" id="email-error"></small>
+                              <br>
+                            </div>
+                            <div class="form-field">
+                              <input type="password" placeholder="Password*" id="password" name="password" onkeyup="validatePassword()" required>
+                              <small class="error" id="password-error"></small>
+                              <br>
+                            </div>
+                            <div class="form-field">
+                              <input type="password" placeholder="Retype your password*" id="confirm-password" onkeyup="validateConfirmPassword()" required>
+                              <small class="error" id="confirm-password-error"></small>
+                              <br>
+                            </div>
+                             <div class="form-field">
+                              <input type="date" placeholder="dateof birth" id="dob" name="dob"  required>
+
+                              <br>
+                            </div>
+                            <div class="form-field">
+                              <input type="number" placeholder="Phno" id="phone" name="phno" onkeyup="validatePhoneNumber()" required>
+                              <small class="error" id="phone-error"></small>
+                              <br>
+                            </div>
+                            <div class="form-field">
+                              <input type="file" placeholder="upload your file" name="file" required>
+                              <small></small>
+                              <br>
+                            </div>
+                            <div class="form-field">
+                              <button type="submit" value="Submit">Create</button>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+
+                      <hr>
+                    <br>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="background-color: black; color: white; border: none;border-radius: none; font-size: x-large;">
+                            AdminLogin
+                          </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                          <div class="accordion-body">
+                            <form id="adminForm" onsubmit="return validateLoginForm()" action="/adminlogin" method="post">
+
+                            <input type="email" id="Lusername" name="aemail" required placeholder="Email*"  ><br><br>
+
+
+                            <input type="password" id="Lpassword" name="apassword" required placeholder="Password*" >
+                            <br>
+                            <p id="Lerror" style="color: red;"></p>
+                            <p id="Ldemo" style="color: rgb(47, 170, 39);"></p>
+                                <br>
+
+                            <input type="submit" value="Login" id="Lsubmit">
+                        </form>
+                          </div>
+                        </div>
+                      </div>
+              </div>
+            </div>
+          </div>
+      </div>
+        </div>
+        <!--2nd navbar-->
+</div>
+
+<!--Nav end-->
+
+<br>
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="cartOffcanvas" aria-labelledby="cartOffcanvasLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="cartOffcanvasLabel">Shopping Cart</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <h1>Please Login Bro...!!!</h1>
+
+    </div>
+</div>
+
+<!-- cart end -->
+
+{% block content %}
+
+
+
+{% endblock %}
+
+
+<!--Footer start-->
+<footer>
+  <div class="s1">
+    <div class="personal">
+      <p>tejteja54321@gmail.com <br>
+        +91 7702080490</p>
+    </div>
+    <div class="location" >
+      <i class="fa-solid fa-location-dot"></i>&nbsp;
+      <a href="https://maps.app.goo.gl/pY8KHvXErzde2Z1r9">R S ROAD RAILWAY KODUR,<br> Annamayya, AndhraPradesh, <br>India, 516101</a>
+      </div>
+      <div class="social text-light">
+        <a href="https://www.instagram.com/rey__tej/"><i class="fa-brands fa-instagram me-2" style="font-size: 30px"> </i> Instagram</a>
+        <a href="https://web.whatsapp.com/"><i class="fa-brands fa-whatsapp me-2" style="font-size: 30px"></i> whatsapp</a>
+        <a href="https://twitter.com/i/flow/login"><i class="fa-brands fa-twitter me-2" style="font-size: 30px"></i>Twitter</a>
+        <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook me-2" style="font-size: 30px"></i>Facebook</a>
+        </div>
+    </div>
+
+
+  <div class="s2">
+    <div class="copy-right " id="copy-right">
+      <p>© 2023 Condé Nast. All rights reserved.</p>
+  </div>
+  </div>
+</footer>
+
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+<script src="static/js/shoppingbag.js">
+
+</script>
+</body>
+</html>
