@@ -1,0 +1,224 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color-light: white;
+    --secondary-color-light: black;
+    --primary-color-dark: black;
+    --secondary-color-dark: white;
+    --third-color-light:  rgb(214, 211, 211);
+    --third-color-dark:  rgb(37, 37, 37);
+    --fourth-color-light:  rgb(90, 89, 89);
+    --fourth-color-dark:  rgb(245, 243, 243);
+    
+}
+
+[data-theme='dark'] {
+    --primary-color: var(--primary-color-dark);
+    --secondary-color: var(--secondary-color-dark);
+    --third-color:var(--third-color-dark);
+    --fourth-color:var(--fourth-color-dark);
+}
+
+[data-theme='light'] {
+    --primary-color: var(--primary-color-light);
+    --secondary-color: var(--secondary-color-light);
+    --third-color:var(--third-color-light);
+    --fourth-color:var(--fourth-color-light);
+
+}
+
+#main-body{
+    background-color: var(--primary-color);
+}
+
+
+
+
+
+
+
+
+/* rental start */
+.carousel-item .carousel-caption h5{
+    font-size: 70px;
+}
+.carousel-item .carousel-caption button{
+    width: 170px;
+    height: 70px;
+    color: var(--primary-color);
+    font-size: small; 
+    background-color: var(--secondary-color);
+    border: 2px solid var(--primary-color);
+}
+.carousel-item .carousel-caption2{
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    transform: translate(-50%,-20%);
+}
+.carousel-item .carousel-caption button:hover{
+    color: var(--secondary-color);
+    background-color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.part2{
+    display: flex;
+    margin:50px 100px;
+    
+
+}
+.part2 .img {
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+}
+.part2 .img img{
+    width: 100%;
+    height: 500px;
+    transition: 1.0s all ease-in-out;
+}
+.img:hover img{
+    transform: scale(1.5);
+}
+.part2 .img .text{
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--primary-color);
+    
+  }
+  .part2 .img .text h1{
+    font-size: 60px;
+  }
+
+
+
+.part3{
+    background-color: rgb(30, 39, 60);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.part3 .s1{
+    display: flex;
+    color: var(--primary-color);
+    text-align: center;
+    padding: 100px 100px 0 100px;
+    justify-content: space-around;
+}
+.part3 .s1 .dis h1{
+    font-size: 16px;
+}
+.part3 .s2{
+    display: flex;
+    color: var(--primary-color);
+    text-align: center;
+    padding: 100px 100px 100px 100px;
+    justify-content: space-around;
+}
+.part3 .s2 .dis h1{
+    font-size: 16px;
+}
+.part3 .s2 .dis p,.part3 .s1 .dis p{
+    font-weight: lighter;
+}
+
+
+
+
+
+
+
+
+
+@media (max-width:800px) {
+    .carousel-item{
+        z-index: 1;
+    }
+    .carousel-item .carousel-caption{
+        position: absolute; 
+        top: 50%; 
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+    .part2 .img .text h1{
+        font-size: 30px;
+      }
+}
+
+
+
+
+
+
+
+
+/* rental end */
+
+.appointment{
+    padding: 0 200px;
+    margin-bottom: 100px;
+ }
+ .appointment h1{
+    font-size: 60px;
+    text-align: center;
+    padding: 30px 0;
+    color: black;
+    
+ }
+
+ .appointment input,.formselect{
+    width: 100%;
+    border: none;
+    background-color: var(--third-color);
+    margin-bottom: 20px;
+    height: 70px;
+    border-radius: 3px;
+    padding: 20px;
+    
+ }
+
+ .appointment textarea{
+    width: 100%;
+    border: none;
+    background-color: var(--third-color);
+    margin-bottom: 20px;
+    padding: 20px;
+
+ }
+ .appointment button{
+    width: 180px;
+    height: 70px;
+    font-size: medium;
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+    z-index: 1;
+    text-align: center;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    border: 1px solid var(--primary-color);
+    margin-bottom: 30px;
+ }
+
+ .appointment button:hover{
+    color: var(--secondary-color);
+    background-color: var(--primary-color);
+    border: 2px solid var(--fourth-color);
+ }
+ #validationDefault04{
+    color: var(--secondary-color);
+ }
+ @media (max-width:800px) {
+    .appointment{
+        padding: 0 20px;
+     }
+ }
+ .error {
+    color: red;
+}

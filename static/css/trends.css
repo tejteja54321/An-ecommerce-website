@@ -1,0 +1,263 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color-light: white;
+    --secondary-color-light: black;
+    --primary-color-dark: black;
+    --secondary-color-dark: white;
+    --third-color-light:  rgb(214, 211, 211);
+    --third-color-dark:  rgb(37, 37, 37);
+    --fourth-color-light:  rgb(90, 89, 89);
+    --fourth-color-dark:  rgb(245, 243, 243);
+    
+}
+
+[data-theme='dark'] {
+    --primary-color: var(--primary-color-dark);
+    --secondary-color: var(--secondary-color-dark);
+    --third-color:var(--third-color-dark);
+    --fourth-color:var(--fourth-color-dark);
+}
+
+[data-theme='light'] {
+    --primary-color: var(--primary-color-light);
+    --secondary-color: var(--secondary-color-light);
+    --third-color:var(--third-color-light);
+    --fourth-color:var(--fourth-color-light);
+
+}
+
+#main-body{
+    background-color: var(--primary-color);
+}
+
+
+
+
+
+/* trends main page starts */
+
+.searching{
+    float: right;
+    width: 50%;
+    margin: 0;
+}
+.searching>input{
+    border: none;
+     border-bottom: 2px solid var(--secondary-color); 
+     width: 50%; 
+    padding: 5px;
+}
+@media (max-width:800px) {
+    .searching{
+        float: left;
+        width: 100%;
+        margin: 0px;
+    }
+    .sale-img{
+        margin: 0px;
+        padding: 0px;
+    }
+}
+
+.sale-img{
+    margin: 20px 0px;
+}
+.mega{
+    width: 100%;
+    height: 100%;
+    
+}
+
+#seas{
+  font-size: 60px;
+  text-align: center;
+  padding: 20px 0;
+  color: var(--secondary-color);
+}
+
+
+
+.season{
+  display: flex;
+  margin: 10px 0px;
+  flex-wrap: wrap;
+}
+.season>.card{
+  flex-basis: 200;
+  flex-grow: 1;
+}
+
+.card-body a,.card-body h3{
+  text-decoration: none;
+  color: black;
+}
+
+
+
+.mega-sale h1{
+  color: var(--secondary-color);
+  text-align: center;
+  padding: 20px 0;
+}
+
+.mi-1{
+  display: flex; 
+
+}
+.mi-1>.i{
+  flex-basis: 200;
+  flex-grow: 1;
+
+}
+#i{
+    position: relative;
+}
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;    
+    transition: .5s ease;
+    background-color: var(--third-color);
+}
+  
+#i:hover .overlay {
+    opacity: 1;
+}
+  
+.text {
+   
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+   width: 100%;
+   height: 100%;
+}
+
+
+
+
+
+
+.discount{
+    background: var(--secondary-color);
+    width: 100%;
+    display: flex;
+    color: var(--primary-color);
+    padding: 50px 0 50px 70px;
+    
+}
+.dis_txt{
+    flex: 50%;
+    margin-top: 100px;
+    margin-right: 20px;
+    padding-right: 5px;
+}
+.dis_txt>input{
+    border: 1px solid var(--primary-color);
+    padding: 15px 10px;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    font-weight: bolder;
+    width: 90%;
+}
+.dis_txt>button{
+border: none;
+padding: 15px;
+font-weight: bold;
+color: var(--secondary-color);
+background-color: var(--primary-color);
+border: 1px solid var(--secondary-color);
+}
+.dis_txt>button:hover{
+  color: var(--primary-color);
+  background: var(--secondary-color);
+  border: 1px solid var(--primary-color);
+}
+
+
+.dic_img{
+    flex: 50%;
+}
+.dic_img img{
+   width: 100%;
+   height: auto;
+
+}
+@media (max-width:800px) {
+    .discount{
+        background: var(--secondary-color);
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        color: var(--primary-color);
+        padding: 10px 0 10px 10px;
+        
+    }
+    .dic_img img{
+        width: 100%;
+    }
+    .dis_txt>button{
+        width: 100%;
+        }
+        .dis_txt>input{
+            width: 100%;
+        }
+    
+}
+
+.flip-card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+
+.flip-card:hover {
+  transform: rotateY(180deg);
+}
+
+.flip-card-inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+}
+
+.flip-card-front,
+.flip-card-back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background: url('https://img.freepik.com/free-photo/portrait-handsome-stylish-hipster-lambersexual-model_158538-18005.jpg?w=996&t=st=1702379984~exp=1702380584~hmac=22177af6240300c5592b4444ec006ffd09729057b1ceb1780f64f55305ec49c0') center/cover no-repeat;
+}
+
+.flip-card-back {
+  background: url('https://img.freepik.com/free-photo/brutal-man-with-phone_1303-9214.jpg?w=996&t=st=1702380011~exp=1702380611~hmac=ffde22c4d0ef4ce99ddda6da864fd4a88fff245e477f37310f3515b666286716') center/cover no-repeat;
+  transform: rotateY(180deg);
+}
+
+.faq-section .container h2{
+  text-align: center;
+  color: var(--secondary-color);
+  
+}
+
+/* trends css ends */

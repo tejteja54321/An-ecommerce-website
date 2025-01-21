@@ -1,0 +1,705 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color-light: white;
+    --secondary-color-light: black;
+    --primary-color-dark: black;
+    --secondary-color-dark: white;
+    --third-color-light:  rgb(214, 211, 211);
+    --third-color-dark:  rgb(37, 37, 37);
+    --fourth-color-light:  rgb(90, 89, 89);
+    --fourth-color-dark:  rgb(245, 243, 243);
+
+}
+
+[data-theme='dark'] {
+    --primary-color: var(--primary-color-dark);
+    --secondary-color: var(--secondary-color-dark);
+    --third-color:var(--third-color-dark);
+    --fourth-color:var(--fourth-color-dark);
+}
+
+[data-theme='light'] {
+    --primary-color: var(--primary-color-light);
+    --secondary-color: var(--secondary-color-light);
+    --third-color:var(--third-color-light);
+    --fourth-color:var(--fourth-color-light);
+
+}
+
+#main-body{
+    background-color: var(--primary-color);
+}
+
+
+
+
+/* navbar1 */
+
+.nav-main{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+}
+.nav-main>.nav1{
+    height: 90px;
+    color:var(--secondary-color);
+    background-color: var(--primary-color);
+}
+.nav1>.inside>.inside-inside>.navbar-nav>.nav-item>.nav-link{
+    background: var(--primary-color);
+    color: var(--secondary-color);
+}
+.nav1>.inside>.inside-inside>.navbar-nav>.nav-item>.nav-link:hover{
+    color: var(--secondary-color);
+    font-weight: bold;
+    border-bottom:3px solid var(--secondary-color);
+}
+
+#moon-icon{
+    width: 30px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+#logo-user{
+    font-size: 25px;
+    color: var(--secondary-color);
+    margin-right: 20px;
+
+}
+
+/* login button */
+.sub-menu-wrap{
+    position: absolute;
+    top: 90%;
+    right: 2%;
+    width: 320px;
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+}
+.sub-menu-wrap.open-menu{
+    max-height: 400px;
+}
+.sub-menu{
+    background-color: var(--secondary-color);
+    padding: 20px;
+    margin: 10px;
+    color: var(--primary-color);
+    border-radius: 10px;
+    box-shadow: 2px 2px 8px grey;
+}
+.user-info{
+    display: flex;
+    align-items: center;
+}
+.user-info h2{
+    font-weight: 500;
+}
+.user-info img{
+    width: 60px;
+    border-radius: 50%;
+    height: 60px;
+    margin-right: 15px;
+}
+.sub-menu hr{
+    border: 0;
+    height: 1px;
+    width: 100%;
+    background-color: var(--primary-color);
+    margin: 15px 0 10px;
+
+}
+.sub-menu-link{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #525252;
+    margin: 10px 0;
+
+}
+.sub-menu-link p{
+    width: 100%;
+    padding-top: 8px;
+    padding-left: 10px;
+    color: var(--primary-color);
+
+}
+.sub-menu-link i{
+    width: 40px;
+    background-color: #e5e5e5;
+    border-radius: 50%;
+    padding: 10px;
+    margin-left: 1px;
+}
+.sub-menu-link span{
+    font-size: 22px;
+    transition: transform 0.5s;
+}
+.sub-menu-link:hover span{
+    transform: translateX(5px);
+}
+.sub-menu-link:hover p{
+    font-weight: 600;
+}
+/* login button */
+
+/* navbar2 */
+
+
+.nav-main>.nav2{
+    height: 30px;
+
+    background-color: var(--third-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    justify-content: space-around;
+    font-size: 0.8rem;
+}
+.nav2>.nav-link,.register>.sin{
+    color: var(--secondary-color);
+}
+.nav2>.nav-link:hover,.register>.sin:hover{
+    color: var(--secondary-color);
+    font-weight: bold;
+    border-bottom:3px solid var(--secondary-color);
+}
+
+
+/* login */
+#Lusername,#Lpassword{
+    width: 100%;
+    height: 50px;
+    border-radius: none;
+    padding-left: 5%;
+}
+#Lsubmit{
+    width: 100%;
+    height: 50px;
+    background-color: var(--primary-color);
+    border:none;
+    color: var(--secondary-color);
+    border: 1px solid var(--secondary-color);
+}
+#Lsubmit:hover{
+    background-color: var(--secondary-color);
+    border:none;
+    color: var(--primary-color);
+}
+/* reister */
+ .register>.sin{
+ text-decoration: none;
+ color: var(--secondary-color);
+ display: block;
+}
+
+.form h1{
+    text-align: center;
+}
+.form-field input{
+    width: 100%;
+    padding: 10px;
+    height: 50px;
+    margin-top: 20px;
+}
+.form-field small{
+    color: red;
+    text-align: center;
+    background-color: rgba(red, 0, 0, 0.6);
+}
+.form-field button{
+    width:100%;
+    height: 50px;
+    background-color: var(--primary-color);
+    border: 1px solid var(--secondary-color);
+    color: var(--secondary-color);
+    margin-top: 20px;
+}
+.form-field #Button:hover{
+    background-color: var(--secondary-color);
+    border: 1px solid var(--secondary-color);
+    color: var(--primary-color);
+
+}
+
+
+   /* footer */
+   footer{
+    width: 100%;
+    height: auto;
+}
+footer .s1{
+    background-color: var(--third-color);
+    padding: 40px 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.personal{
+    color: var(--secondary-color);
+}
+.location a{
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+.s1 .social{
+    display: flex;
+    flex-direction: column;
+}
+.social a{
+    padding-bottom: 8px;
+    text-decoration: none;
+    color: var(--secondary-color);
+}
+
+footer .s2{
+    background: var(--third-color);
+    padding: 5px;
+    text-align: center;
+    padding-top: 6px;
+}
+@media (max-width:700px) {
+    footer .s1{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-content: flex-start;
+    }
+    .personal{
+        padding-bottom: 20px;
+    }
+    .location{
+        padding-bottom: 40px;
+    }
+}
+#copy-right{
+    font-weight:lighter ;
+    color: var(--secondary-color);
+}
+ /* footer */
+
+
+
+   #viewusers {
+    text-align: center;
+    margin: 20px auto; /* Add some margin */
+    max-width: 800px; /* Limit the width of the table */
+}
+
+/* Style table */
+#cust_table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* Add a shadow effect */
+}
+
+/* Style table header */
+#cust_table th {
+    background-color: black;
+    color: white;
+    padding: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Style table rows */
+#cust_table tr:nth-child(even) {
+    background-color: #f2f2f2; /* Alternate row color */
+}
+
+/* Style table cells */
+#cust_table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    position: relative; /* Position for hover effect */
+}
+
+/* Hover effect on cells */
+#cust_table td:hover::after {
+    content: ''; /* Add content for pseudo-element */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(224, 224, 224, 0.5); /* Hover color */
+    z-index: -1; /* Place behind cell content */
+    transition: background-color 0.3s ease-in-out; /* Smooth transition */
+}
+
+/* Style images in cells */
+#cust_table img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%; /* Round the image corners */
+    object-fit: cover; /* Maintain image aspect ratio */
+    transition: transform 0.3s ease-in-out; /* Image transformation on hover */
+}
+
+/* Hover effect on images */
+#cust_table img:hover {
+    transform: scale(1.1); /* Slightly increase size on hover */
+}
+
+/* Responsive table */
+@media screen and (max-width: 600px) {
+    #cust_table {
+        overflow-x: auto;
+    }
+}
+
+
+        #addproduct {
+    text-align: center;
+    margin: 20px auto;
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 8px;
+    background: url('static/upload/adminform.jpg') no-repeat center center;
+    background-size: cover;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    color: #fff; /* Text color for better visibility */
+}
+
+/* Form container */
+#addProductForm {
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background for form */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* Form labels */
+#addProductForm label {
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #fff; /* Label text color */
+}
+
+/* Form inputs */
+#addProductForm input[type="text"],
+#addProductForm input[type="number"],
+#addProductForm input[type="file"],
+#addProductForm input[type="submit"] {
+    width: calc(100% - 10px);
+    padding: 8px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    color: #333; /* Input text color */
+    background-color: #f9f9f9; /* Input background color */
+}
+
+/* Submit button */
+#addProductForm input[type="submit"] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect on submit button */
+#addProductForm input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* Responsive form */
+@media screen and (max-width: 600px) {
+    #addproduct, #addProductForm {
+        width: 90%;
+    }
+}
+
+        #viewproducts {
+    text-align: center;
+    margin: 20px auto;
+    max-width: 800px;
+    position: relative;
+}
+
+/* Style table */
+#viewproducts table {
+    width: 100%;
+    color:var(--primary-color)
+    border-collapse: collapse;
+    margin-top: 20px;
+    animation: fadeIn 0.5s ease-in-out; /* Table fade-in animation */
+}
+
+/* Style table headers */
+#viewproducts th {
+    background-color: black;
+    color: white;
+    padding: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: 1px solid #ddd;
+}
+
+/* Style table rows */
+#viewproducts tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Style table cells */
+#viewproducts td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+/* Hover effect on table rows */
+#viewproducts tr:hover {
+    background-color: #e0e0e0;
+    transition: background-color 0.3s ease;
+}
+
+/* Background image for the form */
+form {
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    display: inline-block;
+    position: relative;
+    animation: fadeIn 0.5s ease-in-out; /* Form fade-in animation */
+    overflow: hidden;
+}
+
+/* Animation for background */
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Apply animation to the form's background */
+form::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, #9A5A2A, #573419, #9A5A2A);
+    background-size: 200% auto;
+    animation: gradientAnimation 5s ease infinite alternate;
+    z-index: -1;
+}
+
+/* Update price input styling */
+.updateprice {
+    width: 80px;
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+/* Image hover effect */
+#viewproducts img {
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Enlarge image on hover */
+#viewproducts img:hover {
+    transform: scale(1.1);
+}
+
+/* Media query for responsiveness */
+@media screen and (max-width: 600px) {
+    #viewproducts table {
+        overflow-x: auto;
+    }
+}
+
+/* Keyframes for fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+#viewcart h1{
+color: var(--secondary-color);
+font-size:larger;
+}
+
+#viewcart {
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    background-image: url('static/upload/cart_back(1).jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white; /* Text color for better contrast */
+}
+
+/* Style for the table inside viewcart */
+#viewcart table {
+    color: white; /* Text color for better contrast */
+    border-collapse: collapse; /* Merge table borders */
+    width: 80%; /* Adjust table width as needed */
+    margin-top: 20px; /* Add some spacing from the top */
+}
+
+/* Style for the table headers */
+#viewcart th {
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background for headers */
+    padding: 10px;
+}
+
+/* Style for the table rows */
+#viewcart tr {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Border between rows */
+}
+
+/* Style for alternate table rows (zebra striping) */
+#viewcart tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.1); /* Alternate row background color */
+}
+
+/* Style for table cell data */
+#viewcart td {
+    padding: 8px;
+    text-align: center; /* Center-align cell content */
+}
+
+/* Additional styling for the viewcart header */
+#viewcart h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+
+#viewpayment h1{
+color: var(--secondary-color);
+font-size:larger;
+}
+
+#viewpayment {
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    background-image: url('static/upload/cart_back(1).jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white; /* Text color for better contrast */
+}
+
+/* Style for the table inside viewcart */
+#viewpayment table {
+    color: white; /* Text color for better contrast */
+    border-collapse: collapse; /* Merge table borders */
+    width: 80%; /* Adjust table width as needed */
+    margin-top: 20px; /* Add some spacing from the top */
+}
+
+/* Style for the table headers */
+#viewpayment th {
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background for headers */
+    padding: 10px;
+}
+
+/* Style for the table rows */
+#viewpayment tr {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Border between rows */
+}
+
+/* Style for alternate table rows (zebra striping) */
+#viewpayment tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.1); /* Alternate row background color */
+}
+
+/* Style for table cell data */
+#viewpayment td {
+    padding: 8px;
+    text-align: center; /* Center-align cell content */
+}
+
+/* Additional styling for the viewcart header */
+#viewpayment h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+
+
+#viewappointment h1{
+color: var(--secondary-color);
+font-size:larger;
+}
+
+#viewappointment {
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    background-image: url('static/upload/cart_back(1).jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white; /* Text color for better contrast */
+}
+
+/* Style for the table inside viewcart */
+#viewappointment table {
+    color: white; /* Text color for better contrast */
+    border-collapse: collapse; /* Merge table borders */
+    width: 80%; /* Adjust table width as needed */
+    margin-top: 20px; /* Add some spacing from the top */
+}
+
+/* Style for the table headers */
+#viewappointment th {
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background for headers */
+    padding: 10px;
+}
+
+/* Style for the table rows */
+#viewappointment tr {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Border between rows */
+}
+
+/* Style for alternate table rows (zebra striping) */
+#viewappointment tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.1); /* Alternate row background color */
+}
+
+/* Style for table cell data */
+#viewappointment td {
+    padding: 8px;
+    text-align: center; /* Center-align cell content */
+}
+
+/* Additional styling for the viewcart header */
+#viewappointment h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}

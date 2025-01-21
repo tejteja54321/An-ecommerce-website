@@ -1,0 +1,153 @@
+/* cartstyle.css */
+
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, auto));
+    gap: 3rem;
+    justify-content: center;
+    align-content: center;
+    margin: 40px 50px;
+}
+
+.productcard {
+    background-color: #EEEEE6;
+    padding: 20px;
+    border-radius: 20px;
+    position: relative;
+    box-shadow: 0 1px 4px var(--secondary-color);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.productcard img {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 10px 10px black);
+    transition: 0.4s;
+}
+
+.productcard img:hover {
+    transform: scale(1.5);
+}
+
+.productcard h3 {
+    margin-top: 10px;
+    font-weight: 500;
+    font-size: 20px;
+    text-align: center;
+}
+
+.productcard p {
+    font-weight: 500;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+.productcard .addtocart {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #353432;
+    color: #eee;
+    border: none;
+    height: 50px;
+    width: 120px;
+    padding: 5px 10px;
+    margin-top: 10px;
+    font-size: small;
+    cursor: pointer;
+    transition: 0.5s;
+    object-fit: cover;
+}
+
+.productcard .addtocart:hover {
+    font-size: 1.1em;
+    color: black;
+    background-color: white;
+    border: 1px solid black;
+}
+
+#search-form {
+    text-align: center; /* Center-align the content */
+    margin-top: 20px; /* Add some top margin for spacing */
+}
+
+/* Style for the search input */
+#search-input {
+    padding: 10px;
+    border: 1px solid var(--secondary-color);
+    border-radius: 25px 0 0 25px;
+    box-shadow:2px 2px 8px grey;
+    width: 70%; /* Adjust width as needed */
+}
+
+/* Style for the search button */
+#search-button {
+    padding: 10px 20px;
+    border: 1px solid var(--secondary-color);
+    background-color: green;
+    color: white;
+    border-radius:0 25px 25px 0;
+    margin-left: -4px; /* Overlapping adjustment */
+    cursor: pointer;
+}
+
+/* Hover effect for the button */
+#search-button:hover {
+    background-color: #cc0000; /* Change to a darker shade or different color */
+}
+
+#filter-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px; /* Add some top margin for spacing */
+}
+
+/* Style for the select element */
+#category-filter {
+    padding: 10px;
+    border: 1px solid var(--secondary-color);
+    border-radius: 25px 0 0 25px;
+    width: 60%; /* Adjust width as needed */
+    font-size: 16px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+    background-position: calc(100% - 10px) center;
+    background-repeat: no-repeat;
+    background-size: 18px;
+}
+
+/* Style for the filter button */
+#filter-button {
+
+    padding: 10px 20px;
+    border: 1px solid var(--secondary-color);
+    background-color: #007bff;
+    color: white;
+    border-radius: 0 20px 20px 0;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* Hover effect for the button */
+#filter-button:hover {
+    background-color: #0056b3;
+}
